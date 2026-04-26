@@ -1,6 +1,6 @@
 /*
  * speed_calculator.ino
- * WSO Galacticos — In-Flight Velocity Estimator
+ * WSO Galacticos - In-Flight Velocity Estimator
  *
  * Estimates vertical velocity by numerically integrating the
  * calibrated Z-axis acceleration from the MPU-6050 IMU.
