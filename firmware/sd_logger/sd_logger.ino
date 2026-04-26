@@ -1,6 +1,6 @@
 /*
  * sd_logger.ino
- * WSO Galacticos — Onboard Data Logger
+ * WSO Galacticos - Onboard Data Logger
  *
  * Reads X/Y/Z acceleration from MPU-6050 via I2C and logs
  * raw values to data.txt on a micro SD card (SPI, CS = pin 10).
