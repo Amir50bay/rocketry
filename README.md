@@ -1,6 +1,6 @@
 # WSO Rocketry Project
 
-**Competition:** World Space Olympiad (WSO) — Rocket Competition  
+**Competition:** World Space Olympiad (WSO) - Rocket Competition  
 **Team Phase 1:** Galacticos | **Team Phase 2:** NIS Copernicus  
 **Role:** Team Captain (both phases)  
 **Year:** 2024
@@ -11,25 +11,25 @@
 
 This project was developed across two phases of the World Space Olympiad rocket competition. The objective was to design, simulate, and build a model rocket with an integrated onboard flight computer capable of real-time data acquisition during flight.
 
-Between phases, the hardware stack was significantly upgraded based on lessons learned from Phase 1 — replacing the Arduino Nano with an Arduino Uno, adding a barometric pressure sensor (BMP280), integrating wireless telemetry (NRF24L01), and redesigning the 3D model in Fusion 360 for improved structural accuracy. Due to time constraints, the Phase 2 hardware was launched with Phase 1 firmware; full sensor integration was a planned next iteration.
+Between phases, the hardware stack was significantly upgraded based on lessons learned from Phase 1 - replacing the Arduino Nano with an Arduino Uno, adding a barometric pressure sensor (BMP280), integrating wireless telemetry (NRF24L01), and redesigning the 3D model in Fusion 360 for improved structural accuracy. Due to time constraints, the Phase 2 hardware was launched with Phase 1 firmware; full sensor integration was a planned next iteration.
 
 ---
 
 ## Phase Comparison
 
-| Parameter | Phase 1 — Galacticos | Phase 2 — NIS Copernicus |
+| Parameter | Phase 1 - Galacticos | Phase 2 - NIS Copernicus |
 |---|---|---|
 | Microcontroller | Arduino Nano | Arduino Uno |
 | Storage | SD card module | Data Logging Shield (with RTC) |
 | IMU | MPU-6050 | MPU-6050 |
-| Barometric sensor | — | BMP280 |
-| Wireless telemetry | — | NRF24L01 |
-| Ground station | — | Arduino Uno + NRF24L01 |
+| Barometric sensor | - | BMP280 |
+| Wireless telemetry | - | NRF24L01 |
+| Ground station | - | Arduino Uno + NRF24L01 |
 | Camera | Raspberry Pi Camera V2 | Action camera (on parachute) |
 | 3D modeling tool | Tinkercad | Fusion 360 |
 | Simulated apogee | 312 m | 415 m |
 | Stability margin | 1.3 cal | 2.24 cal |
-| Landing speed | — | 3.74 m/s |
+| Landing speed | - | 3.74 m/s |
 
 ---
 
@@ -37,11 +37,11 @@ Between phases, the hardware stack was significantly upgraded based on lessons l
 
 The rocket consists of three primary sections:
 
-**Nosecone** — houses the onboard flight computer payload. At apogee the nosecone is ejected to deploy the parachute recovery system.
+**Nosecone** - houses the onboard flight computer payload. At apogee the nosecone is ejected to deploy the parachute recovery system.
 
-**Body tube** — contains the parachute (85 cm diameter, nylon ripstop), wadding, and avionics bay. Centering rings align the internal structure and maintain airframe rigidity.
+**Body tube** - contains the parachute (85 cm diameter, nylon ripstop), wadding, and avionics bay. Centering rings align the internal structure and maintain airframe rigidity.
 
-**Motor section** — contains the propellant motor (RD1-100-7M-7), ejection charge, and trapezoidal fins for passive aerodynamic stabilization.
+**Motor section** - contains the propellant motor (RD1-100-7M-7), ejection charge, and trapezoidal fins for passive aerodynamic stabilization.
 
 In Phase 2 the 3D model was redesigned in Fusion 360 with improved internal component layout and material specifications: PLA nosecone (50% infill), Watman paper body tube, plywood motor mount rings (laser cut), and bookbinding board fins.
 
@@ -49,20 +49,20 @@ In Phase 2 the 3D model was redesigned in Fusion 360 with improved internal comp
 
 ## Avionics
 
-### Phase 1 — Galacticos
-- **Arduino Nano** — central flight computer
-- **MPU-6050** — 6-axis IMU via I2C for acceleration and attitude data
-- **Micro SD card module** — SPI-based data logging
-- **Raspberry Pi Camera V2** — aerial imaging
+### Phase 1 - Galacticos
+- **Arduino Nano** - central flight computer
+- **MPU-6050** - 6-axis IMU via I2C for acceleration and attitude data
+- **Micro SD card module** - SPI-based data logging
+- **Raspberry Pi Camera V2** - aerial imaging
 
-### Phase 2 — NIS Copernicus
-- **Arduino Uno** — central flight computer (upgraded for additional I/O)
-- **MPU-6050** — 6-axis IMU via I2C
-- **Data Logging Shield** — SD storage with onboard RTC for timestamped data
-- **BMP280** — barometric pressure and altitude sensor
-- **NRF24L01** — 2.4 GHz wireless telemetry to ground station
-- **Buzzer** — post-landing acoustic locator
-- **Action camera** — mounted on parachute for aerial footage
+### Phase 2 - NIS Copernicus
+- **Arduino Uno** - central flight computer (upgraded for additional I/O)
+- **MPU-6050** - 6-axis IMU via I2C
+- **Data Logging Shield** - SD storage with onboard RTC for timestamped data
+- **BMP280** - barometric pressure and altitude sensor
+- **NRF24L01** - 2.4 GHz wireless telemetry to ground station
+- **Buzzer** - post-landing acoustic locator
+- **Action camera** - mounted on parachute for aerial footage
 
 ### Ground Station (Phase 2)
 - **Arduino Uno** — receives and displays telemetry
@@ -80,12 +80,12 @@ Parachute specs: 85 cm diameter, nylon ripstop material.
 
 ## Firmware
 
-Two firmware modules were written in C++ for the Arduino Nano (Phase 1). The same firmware was used in Phase 2 due to time constraints — the rocket launched with Phase 1 code running on Phase 2 hardware, logging MPU-6050 data only. BMP280 and NRF24L01 integration was not completed within the competition timeline.
+Two firmware modules were written in C++ for the Arduino Nano (Phase 1). The same firmware was used in Phase 2 due to time constraints - the rocket launched with Phase 1 code running on Phase 2 hardware, logging MPU-6050 data only. BMP280 and NRF24L01 integration was not completed within the competition timeline.
 
 ### `sd_logger.ino`
 Reads X/Y/Z acceleration from the MPU-6050 and writes raw values to `data.txt` on the SD card at 1 Hz. Data is mirrored to Serial at 9600 baud for ground debugging.
 
-**Known limitation:** File opens and closes on every loop iteration to prevent data loss on power-off, at the cost of write throughput. A production version would batch writes and use interrupt-driven closure at apogee. No timestamps in Phase 1 — this was addressed in Phase 2 hardware via the RTC on the Data Logging Shield, pending firmware update.
+**Known limitation:** File opens and closes on every loop iteration to prevent data loss on power-off, at the cost of write throughput. A production version would batch writes and use interrupt-driven closure at apogee. No timestamps in Phase 1 - this was addressed in Phase 2 hardware via the RTC on the Data Logging Shield, pending firmware update.
 
 ### `speed_calculator.ino`
 Estimates vertical velocity by numerically integrating calibrated Z-axis acceleration from the MPU-6050. A 100-sample calibration routine runs at startup to establish the static bias offset.
@@ -135,12 +135,12 @@ rocketry/
 
 ## Tools Used
 
-- **OpenRocket** — flight simulation and stability analysis
-- **Tinkercad** — Phase 1 3D modeling
-- **Fusion 360** — Phase 2 3D modeling
-- **Arduino IDE** — firmware development (C++)
-- **MPU6050 library** — I2C IMU communication
-- **SD library** — SPI file system operations
+- **OpenRocket** - flight simulation and stability analysis
+- **Tinkercad** - Phase 1 3D modeling
+- **Fusion 360** - Phase 2 3D modeling
+- **Arduino IDE** - firmware development (C++)
+- **MPU6050 library** - I2C IMU communication
+- **SD library** - SPI file system operations
 
 ---
 
