@@ -1,4 +1,4 @@
-# WSO Rocketry Project
+# Rocketry Project
 
 **Competition:** World Space Olympiad (WSO) - Rocket Competition  
 **Team Phase 1:** Galacticos | **Team Phase 2:** NIS Copernicus  
@@ -150,3 +150,60 @@ rocketry/
 2. [Apogee Rockets](https://www.apogeerockets.com) — design guides and motor specifications
 3. [OpenRocket](https://openrocket.info) — simulation software
 4. [Instructables](https://www.instructables.com) — fabrication reference
+
+
+---
+
+## Gallery
+
+### Rocket Construction
+
+![Phase 1 rocket construction](hardware/rocket-construction-phase1.png)
+*Phase 1 structural layout: nosecone (payload ejection at apogee), body tube (parachute + avionics), motor section (propellant + fins)*
+
+![Phase 2 rocket construction](hardware/rocket-construction-phase2.png)
+*Phase 2 detailed material breakdown: PLA nosecone (50% infill), Watman paper body tube, plywood motor rings (laser cut), bookbinding board fins, epoxy adhesive*
+
+### Avionics
+
+![Phase 1 avionics](hardware/avionics-phase1.png)
+*Phase 1 flight computer: Arduino Nano, MPU-6050 IMU, micro SD card module, Raspberry Pi Camera V2*
+
+![Phase 2 avionics](hardware/avionics-phase2.png)
+*Phase 2 flight computer assembly: Arduino Uno, Data Logging Shield with RTC, NRF24L01 telemetry, BMP280 barometer, MPU-6050, buzzer*
+
+![Phase 2 wiring diagram](hardware/wiring-diagram-phase2.png)
+*Phase 2 wiring diagram: full connection layout between Arduino Uno, Data Logging Shield, NRF24L01, MPU-6050, BMP280, and buzzer*
+
+![Ground station](hardware/ground-station.png)
+*Ground station: Arduino Uno + NRF24L01 receiver for real-time telemetry during flight*
+
+![Sensors](hardware/sensors.png)
+*Onboard sensors: MPU-6050 IMU, altimeter, RF receiver*
+
+### Simulation
+
+![Phase 1 OpenRocket design](simulation/phase1-openrocket.png)
+*Phase 1 OpenRocket design: stability margin 1.3 cal, simulated apogee 312 m*
+
+![Phase 1 flight simulation](simulation/phase1-flight-simulation.png)
+*Phase 1 flight simulation: altitude, vertical acceleration, and vertical velocity over time*
+
+![Phase 2 OpenRocket design](simulation/phase2-openrocket.png)
+*Phase 2 OpenRocket design: stability margin 2.24 cal, simulated apogee 415 m*
+
+![Phase 2 flight simulation](simulation/phase2-flight-simulation.png)
+*Phase 2 flight simulation results: apogee 415 m, max speed 110 m/s, landing speed 3.74 m/s*
+
+### 3D Models
+
+![Phase 1 Tinkercad model](cad/phase1-tinkercad.png)
+*Phase 1 3D model designed in Tinkercad: height 93 cm, diameter 8 cm*
+
+![Phase 2 Fusion 360 model](cad/phase2-fusion360.png)
+*Phase 2 3D model designed in Fusion 360: full cross-section view with internal component layout*
+
+### Recovery System
+
+![Parachute recovery system](recovery/parachute-system.png)
+*Parachute recovery system: 85 cm diameter nylon ripstop parachute, ejected at apogee via ejection charge*
